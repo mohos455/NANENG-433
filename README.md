@@ -113,7 +113,3 @@ endmodule
 ```
 
 ---
-
-
-
-✅ That’s it — the ALU now produces a WIDTH+1 result and the testbench is simple, **self-checking**, and prints PASS/FAIL automatically!
