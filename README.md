@@ -51,14 +51,10 @@ module alu #(
     Y = '0;
     case(op)
       3'b000: Y = A + B;
-      3'b001: Y = A - B;
-      3'b010: Y = {1'b0, A & B};
-      3'b011: Y = {1'b0, A | B};
-      3'b100: Y = {1'b0, A ^ B};
-      3'b101: Y = {1'b0, A << 1};
-      3'b110: Y = {1'b0, A >> 1};
-      3'b111: Y = {1'b0, A};
-      default: Y = '0;
+      ...
+      ...
+      ...
+
     endcase
     zero = (Y == '0);
   end
@@ -76,13 +72,13 @@ module alu_tb;
   logic [4:0] Y;
   logic zero;
 
+  // Testbench Signals
+  int errors = 0;
+  // Simple self-checking tests
+  logic [4:0] expected;
+
   alu dut(.A(A), .B(B), .op(op), .Y(Y), .zero(zero));
-
   initial begin
-    int errors = 0;
-
-    // Simple self-checking tests
-    automatic logic [4:0] expected;
 
     // Test ADD
     A=3; B=2; op=3'b000; #1; expected=A+B;
@@ -93,32 +89,27 @@ module alu_tb;
     if (Y!==expected) begin $display("Mismatch SUB: got %0d expected %0d", Y, expected); errors++; end
 
     // Test AND
-    A=5; B=6; op=3'b010; #1; expected={1'b0,A&B};
-    if (Y!==expected) begin $display("Mismatch AND: got %0d expected %0d", Y, expected); errors++; end
-
+      ....
+      ....
     // Test OR
-    A=5; B=6; op=3'b011; #1; expected={1'b0,A|B};
-    if (Y!==expected) begin $display("Mismatch OR: got %0d expected %0d", Y, expected); errors++; end
-
+      ....
+      ....
     // Test XOR
-    A=5; B=6; op=3'b100; #1; expected={1'b0,A^B};
-    if (Y!==expected) begin $display("Mismatch XOR: got %0d expected %0d", Y, expected); errors++; end
-
+      ....
+      ....
     // Test Shift Left
-    A=8; op=3'b101; #1; expected={1'b0,A<<1};
-    if (Y!==expected) begin $display("Mismatch SHL: got %0d expected %0d", Y, expected); errors++; end
-
+     ....
+     ....
+    
     // Test Shift Right
-    A=8; op=3'b110; #1; expected={1'b0,A>>1};
-    if (Y!==expected) begin $display("Mismatch SHR: got %0d expected %0d", Y, expected); errors++; end
-
+     ....
+     ....
     // Test Pass-through
-    A=9; op=3'b111; #1; expected={1'b0,A};
-    if (Y!==expected) begin $display("Mismatch PASS: got %0d expected %0d", Y, expected); errors++; end
+     ....
+     ....
 
     if (errors==0) $display("TEST PASS");
     else $display("TEST FAIL: %0d errors", errors);
-    $finish;
   end
 endmodule
 ```
