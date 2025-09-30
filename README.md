@@ -76,7 +76,6 @@ Create a self-checking testbench that:
 Testbench tips:
 
 * Use `$display` for short messages and `$fatal` or `$finish` for ending.
-* Use `foreach` or nested `for` loops to generate stimulus.
 * Use `#1` or `#0` carefully; prefer zero-delay stimulus and let `always_comb` settle; you can run a timestep (`#1ns`) between tests.
 
 Minimal skeleton:
