@@ -1,7 +1,5 @@
 # Lab 1 — SystemVerilog: Build & Test a Simple 4-bit ALU
 
-**Target students:** Undergraduate digital design / HDL course (first SystemVerilog lab)
-
 ---
 
 ## Overview
