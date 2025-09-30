@@ -43,8 +43,7 @@ module alu #(
   input  logic [WIDTH-1:0] A,
   input  logic [WIDTH-1:0] B,
   input  logic [2:0] op,
-  output logic [WIDTH-1:0] Y,
-  output logic C,        // carry out for add, borrow for subtract
+  output logic [WIDTH:0] Y,
   output logic zero      // optional: high when Y == 0
 );
 
@@ -85,9 +84,8 @@ module alu_tb;
   logic [3:0] A, B;
   logic [2:0] op;
   logic [3:0] Y;
-  logic C;
 
-  alu dut(.A(A), .B(B), .op(op), .Y(Y), .C(C));
+  alu dut(.A(A), .B(B), .op(op), .Y(Y));
 
   initial begin
     $dumpfile("alu.vcd");
