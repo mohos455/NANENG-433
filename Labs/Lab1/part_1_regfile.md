@@ -62,7 +62,7 @@ module regfile #(
 
   // Read is asynchronous
   assign rdata1 = regs[raddr1];
- // add asynchronous for 
+ // add asynchronous for rdata2
 
   // add synchronous Write 
   always_ff @(.........)
